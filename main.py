@@ -5,6 +5,9 @@ import re
 from typing import List, Dict
 from fastapi.middleware.cors import CORSMiddleware
 
+
+
+app = FastAPI(title="Health & Hygiene Chatbot")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Or your frontend domain
@@ -13,8 +16,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-app = FastAPI(title="Health & Hygiene Chatbot")
 
 # ======================= Models =======================
 class Message(BaseModel):
