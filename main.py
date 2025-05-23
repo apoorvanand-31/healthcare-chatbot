@@ -3,8 +3,19 @@ from pydantic import BaseModel
 import random
 import re
 from typing import List, Dict
+from fastapi.middleware.cors import CORSMiddleware
+
+
 
 app = FastAPI(title="Health & Hygiene Chatbot")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Or your frontend domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # ======================= Models =======================
 class Message(BaseModel):
